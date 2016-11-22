@@ -1,19 +1,6 @@
 <!-- import_data.vue -->
 <template>
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        xx管理系统
-        <small>Version 2.0</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="glyphicon glyphicon-home"></i>数据管理</a></li>
-        <li class="active">数据导入</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
+     <!-- Main content -->
     <section class="content">
       <div class="row">
       	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -32,5 +19,5 @@
       	</div>
       </div>
     </section>
-  </div>
+   
 </template>

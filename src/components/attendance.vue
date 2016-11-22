@@ -1,9 +1,5 @@
 <!-- attendance.vue -->
 <template>
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <content-header v-bind:menuList="menuList"></content-header>
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -113,24 +109,15 @@
         </div>
       </div>
     </section>
-  </div>
+   
 </template>
 <script>
 import contentHeader from './content_header'
 export default {
   data() {
   	return {
-        msg: '数据',
-        menuList:[
-        	{
-        		text:"考勤管理",
-        		isActive:false
-        	},
-        	{
-        		text:"我的考勤记录",
-        		isActive:true
-        	}
-        ]
+        msg: '数据'
+       
     }
   },
   components: {

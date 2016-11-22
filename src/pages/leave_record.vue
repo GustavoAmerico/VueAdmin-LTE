@@ -162,7 +162,7 @@
   </div>
 </template>
 <script>
-import contentHeader from './content_header'
+ 
 export default {
   data() {
     return {
@@ -180,7 +180,7 @@ export default {
     }
   },
   components: {
-    contentHeader
+  
   },
   mounted(){
     $('input[name="daterange"]').daterangepicker({

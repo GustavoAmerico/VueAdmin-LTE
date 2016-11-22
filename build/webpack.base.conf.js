@@ -14,7 +14,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['', '.js', '.vue','.json'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.js',
@@ -23,7 +23,7 @@ module.exports = {
       'components': path.resolve(__dirname, '../src/components'),
       'jquery': __dirname + '/../src/js/jquery.js',
       'moment':__dirname + '/../src/plugins/daterangepicker/moment.js',
-      'iCheck':__dirname +'/../src/plugins/iCheck/icheck.min.js'
+      'iCheck':__dirname +'../src/plugins/iCheck/icheck.min.js'
     }
   },
   plugins:[

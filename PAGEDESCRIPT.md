@@ -1,0 +1,1 @@
+page is the path for components page (main)

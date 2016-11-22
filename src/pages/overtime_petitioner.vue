@@ -1,8 +1,5 @@
 <!-- overtime_petitioner.vue -->
-<template>
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <content-header v-bind:menuList="menuList"></content-header>
+<template> 
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -35,32 +32,30 @@
 		      </div>
       	</div>
       </div>
-    </section>
-  </div>
+     
 </template>
-<script>
-import contentHeader from './content_header'
+<script> 
 var plugin = require('../js/plugin.js');
 plugin.getdatepicker();
 
 export default {
   data() {
   	return {
-        msg: '数据',
+        msg: 'Menu',
         menuList:[
         	{
-        		text:"加班管理",
+        		text:"Pagina 1",
         		isActive:false
         	},
         	{
-        		text:"加班申请",
+        		text:"Pagina 2",
         		isActive:true
         	}
         ]
     }
   },
   components: {
-    contentHeader
+     
   },
   mounted(){
   	$('input[name="daterange"]').daterangepicker({
