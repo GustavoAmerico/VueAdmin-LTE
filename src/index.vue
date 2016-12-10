@@ -1,14 +1,14 @@
 <!-- index.vue -->
 <template>
   <div id="app" class="wrapper">
-    <app-header v-bind:lib="$root.lib"> </app-header>
-    <app-menu v-bind:lib="$root.lib.menu"> </app-menu>
+    <app-header> </app-header>
+    <app-menu> </app-menu>
     <div class="content-wrapper">
 
       <!-- Content Header (Page header) -->
-      <content-header v-bind:menuList="menuList" v-bind:lib="$root.lib"></content-header>
+      <content-header v-bind:menuList="menuList"></content-header>
       <!-- Content Wrapper. Contains page content -->
-      <router-view v-bind:lib="$root.lib"></router-view>
+      <router-view></router-view>
       <!-- /.content-wrapper -->
     </div>
     <footer class="main-footer">
@@ -216,9 +216,9 @@
 </template>
 <script>
 import contentHeader from './components/content_header'
-import Menu from './components/app_menu'
 import appHeader from './components/app_header'
- export default {
+import appMenu from './components/app_menu'
+export default {
    name:"index",
    props:['lib'],
   data() {
@@ -227,16 +227,10 @@ import appHeader from './components/app_header'
     return {
          
     }
-  },
-  ready(){
-   // debugger;
-   // this.lib = this.$parent.lib;
-
-  },
-  props: ['lib'],
+  }, 
   components: {
     contentHeader,
-    appMenu:Menu,
+    appMenu,
     appHeader
   },
     methods: {}
