@@ -22,9 +22,8 @@ require("./plugins/slimScroll/jquery.slimscroll.min.js")
 require("./dist/js/demo.js")
 require("./dist/js/app.min.js")
 require("./i18n.js")  
-require("./router.js")
-
 require("./store")
+require("./router.js")
 
 
 //require("./dist/js/pages/dashboard2.js")

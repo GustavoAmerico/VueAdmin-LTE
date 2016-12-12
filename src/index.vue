@@ -6,7 +6,7 @@
     <div class="content-wrapper">
 
       <!-- Content Header (Page header) -->
-      <content-header v-bind:menuList="menuList"></content-header>
+      <breadcrumb v-bind:menuList="menuList"></breadcrumb>
       <!-- Content Wrapper. Contains page content -->
       <router-view></router-view>
       <!-- /.content-wrapper -->
@@ -215,7 +215,7 @@
   </div>
 </template>
 <script>
-import contentHeader from './components/content_header'
+import breadcrumb from './components/breadcrumb'
 import appHeader from './components/app_header'
 import appMenu from './components/app_menu'
 export default {
@@ -229,7 +229,7 @@ export default {
     }
   }, 
   components: {
-    contentHeader,
+    breadcrumb,
     appMenu,
     appHeader
   },

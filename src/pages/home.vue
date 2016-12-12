@@ -1,15 +1,19 @@
 <template>
-     <!-- Main content -->
-    <section class="content">
-      <h4 class="text-center">
-        您好，张三
-      </h4>
-      <h2 class="text-center" click="onClick();">
-        welcome
-        <button @click="onClick">click</button>
-      </h2>
-    </section>
-   
+  <!-- Main content -->
+  <section>
+    <h4 class="text-center">
+      您好，张三
+    </h4>
+    <h2 class="text-center" click="onClick();">
+      welcome
+      <button @click="onClick">click</button>
+    </h2>
+
+    <ul>
+
+    </ul>
+  </section>
+
 </template>
 <script>
 
