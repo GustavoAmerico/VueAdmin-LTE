@@ -1,6 +1,6 @@
 <!-- leave_record.vue -->
 <template>
-  <div class="content-wrapper">
+  <section>
   <!-- 模态框（Modal） -->
   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -37,20 +37,9 @@
           </div><!-- /.modal-content -->
       </div><!-- /.modal -->
   </div>
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        xx管理系统
-        <small>Version 2.0</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="glyphicon glyphicon-home"></i>考勤管理</a></li>
-        <li class="active">调休使用记录</li>
-      </ol>
-    </section>
-
+     
     <!-- Main content -->
-    <section class="content">
+    <section >
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -159,7 +148,7 @@
         </div>
       </div>
     </section>
-  </div>
+  </section>
 </template>
 <script>
  

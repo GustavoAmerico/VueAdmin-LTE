@@ -16,6 +16,7 @@
 
 </template>
 <script>
+ 
 
 export default {
   name:"homePage",
@@ -30,6 +31,7 @@ export default {
       onClick:function(){
       debugger; 
        window.alert('click');
+  
     }
   }
 }

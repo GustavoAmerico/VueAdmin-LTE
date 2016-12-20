@@ -6,9 +6,10 @@ import VueRouter from 'vue-router'
 // router 
 import index from './index'
 
-import import_data from './components/import_data.vue'
+
 
 //Pages
+import profile from './pages/profile.vue'
 import attendance from './pages/attendance.vue'
 import overtime_pass from './pages/overtime_pass.vue'
 import leave_record from './pages/leave_record.vue'
@@ -26,8 +27,18 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: "Home",
+        name: "index",
         smallTitle: "First page",
+        meta: {
+            icon: "fa fa-circle-o",
+            smallTitle: "home small"
+        }
+    },
+
+    {
+        path: '/home',
+        name: "home",
+        smallTitle: "home page",
         component: home,
         meta: {
             icon: "fa fa-circle-o",
@@ -35,8 +46,9 @@ const routes = [
         },
         "children": [
             {
-                path: '/attendance',
-                name: "attendance", component: attendance,
+                path: 'attendance',
+                name: "attendance",
+                component: attendance,
                 smallTitle: "First page",
                 meta: {
                     icon: "fa fa-circle-o",
@@ -44,9 +56,18 @@ const routes = [
                 }
             },
             {
-                path: '/leave_record',
+                path: 'leave_record',
                 name: "Big Record",
                 component: leave_record,
+                meta: {
+                    icon: "fa fa-circle-o",
+                    smallTitle: "Records small"
+                }
+            },
+            {
+                path: 'overtime_pass',
+                name: "pass",
+                component: overtime_pass,
                 meta: {
                     icon: "fa fa-circle-o",
                     smallTitle: "Records small"
@@ -56,13 +77,6 @@ const routes = [
         ]
     },
     {
-        path: '/overtime_pass', name: "pass", component: overtime_pass,
-        meta: {
-            icon: "fa fa-circle-o",
-            smallTitle: "Records small"
-        }
-    },
-    {
         path: '/overtime_record', name: "overtimeRecord", component: overtime_record,
         meta: {
             icon: "fa fa-circle-o",
@@ -70,27 +84,18 @@ const routes = [
         }
     },
     {
-        path: '/overtime_petitioner',
-         name: "ptitioner", 
-        component: overtime_petitioner,
+        path: '/Profile',
+        name: "Profile",
+        component: profile,
         meta: {
             icon: "fa fa-circle-o",
-            smallTitle: "Records small"
-        }
-    },
-    {
-        path: '/import_data', 
-        name: "importData",
-         component: import_data,
-        meta: {
-            icon: "fa fa-circle-o",
-            smallTitle: "Records small"
+            smallTitle: "user profile"
         }
     }
 ]
- 
-  
- store.commit('setMenus',routes);
+
+
+store.commit('setMenus', routes);
 
 const router = new VueRouter({
     mode: 'history',
