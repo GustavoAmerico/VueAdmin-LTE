@@ -217,9 +217,6 @@
 </div>
 </template>
 <script>
-  import breadcrumb from './components/breadcrumb'
-  import appHeader from './components/app_header'
-  import appMenu from './components/app_menu'
   export default {
     name: "index",
     props: ['lib'],
@@ -229,12 +226,7 @@
       return {
 
       }
-    },
-    components: {
-      breadcrumb,
-      appMenu,
-      appHeader
-    },
+    }, 
     methods: {}
   }
 

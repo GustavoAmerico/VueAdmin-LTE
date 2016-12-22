@@ -18,9 +18,7 @@
       <ul class="sidebar-menu">
         <li class="header">{{ $t('navigation') }}</li>
 
-        <router-link active-class="active" tag="li" v-bind:to="$menu.path" 
-        v-for="$menu in $store.state.menus"
-         v-bind:name="$menu.name"
+        <router-link active-class="active" tag="li" v-bind:to="$menu.path" v-for="$menu in $store.state.menus" v-bind:name="$menu.name"
           v-bind:class="{ treeview: Array.isArray($menu.children)  }">
 
           <a>
@@ -30,12 +28,10 @@
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
- 
+
           <ul class="treeview-menu" v-if="Array.isArray($menu.children)">
-            
-            <router-link active-class="active" tag="li" v-for="$subMenu in $menu.children"
-             v-bind:name="$subMenu.name"
-              v-bind:to="$subMenu.path">
+
+            <router-link active-class="active" tag="li" v-for="$subMenu in $menu.children" v-bind:name="$subMenu.name" v-bind:to="$subMenu.path">
               <a>
                 <i :class="$subMenu.meta.icon"></i> {{$subMenu.name}}
               </a>
@@ -43,17 +39,16 @@
 
           </ul>
 
-          </li>
+        </router-link>
 
       </ul>
-
     </section>
     <!-- /.sidebar -->
   </aside>
 </template>
 <script> 
   export default {
-    name: 'menu',
+    name: 'appMenu',
     locales: {
       "en-US": { navigation: "Menu" },
       "pt-BR": { navigation: "Painel de navegação" }

@@ -24,80 +24,7 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-<li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Create a nice theme
-                        <small class="pull-right">40%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Some task I need to do
-                        <small class="pull-right">60%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Make beautiful transitions
-                        <small class="pull-right">80%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">80% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
+          <quick-task></quick-task>
           <quick-message class="dropdown messages-menu"></quick-message>
           <quick-notify class="dropdown notifications-menu"></quick-notify>
 
@@ -148,38 +75,32 @@
   </header>
 </template>
 <script>
-import quickMessage from './quick-message'
-import quickNotify from './quick-notify'
-import quickTask from './quick-task'
-import Vue from 'vue' 
-export default {
-name: 'appHeader',
-created(){
-    
-},
-  data(){ 
-   	return {     
-          selected: Vue.config.lang,
-          langs:  Vue.locales
-    } 	
-  },  
- methods:{}, 
- components:{
-   quickNotify,
-   quickMessage
-   },
- locales:{
-        "en-US":{signout:"Sign Out"},
-        "pt-BR":{signout:"Sair"}
-      }, 
- watch: {
-   /*Altera o idioma da aplicação*/
-    selected (val, old) {
-      var self = this
-      Vue.config.lang = val
-    }
-  } 
+  import Vue from 'vue'
+  export default {
+    name: 'appHeader',
+    created() {
 
-}
+    },
+    data() {
+      return {
+        selected: Vue.config.lang,
+        langs: Vue.locales
+      }
+    },
+    methods: {},
+    components: {},
+    locales: {
+      "en-US": { signout: "Sign Out" },
+      "pt-BR": { signout: "Sair" }
+    },
+    watch: {
+      /*Altera o idioma da aplicação*/
+      selected(val, old) {
+        var self = this
+        Vue.config.lang = val
+      }
+    }
+
+  }
 
 </script>

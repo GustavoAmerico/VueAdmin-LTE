@@ -4,13 +4,11 @@
 </div>
 </template>
 <script>
-import userProfile from '../components/profile/user-profile.vue'
+
 
 export default {
-name:"profile",
-components:{
-    userProfile
-}
+name:"profile"
+ 
 
 }
 </script>

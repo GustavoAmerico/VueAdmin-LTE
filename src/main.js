@@ -23,6 +23,7 @@ require("./dist/js/demo.js")
 require("./dist/js/app.min.js")
 require("./i18n.js")  
 require("./store")
+require("./components/components.js")
 require("./router.js")
 
 

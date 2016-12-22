@@ -19,7 +19,7 @@
  
 
 export default {
-  name:"homePage",
+  name:"Home",
   props: [ 'lib'], 
   data(){
   	return {
