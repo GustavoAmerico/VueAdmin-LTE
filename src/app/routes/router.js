@@ -1,61 +1,60 @@
 //App Vue
-import store from './store'
+import store from '../../store'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 //Pages
-import index from './index'
-import home from './pages/home.vue'
-import profile from './pages/profile.vue'
-import profile_register from './pages/profile_register.vue'
+import index from '../template/template.vue'
+import home from '../template/home.vue'
+var VueResource = require('vue-resource')
+
+
+import user_details from './user/user-details.vue'
+
+import user_create from './user/user-create.vue'
 
 
 /*Aqui é aonde deve ser definido a estrutura do menu*/
 var routes = [
     {
-        path: '/',
-        name: "index",
-        smallTitle: "First page",
-        meta: {
-            icon: "fa fa-circle-o",
-            smallTitle: "home small"
-        }
-    },
-
-    {
         path: '/home',
         name: "Home",
         component: home,
         meta: {
-            icon: "fa fa-circle-o",
-            smallTitle: "home small"
+            icon: "fa fa-home",
+            smallTitle: "home small",
+            publicTitle:"Home"
         }
     },
     {
         path: '#',
         name: "Users",
+        component: home,
         meta: {
             icon: "fa fa-user",
-            smallTitle: "user profile"
+            smallTitle: "user profile",
+            publicTitle:"Users"
         },
         children: [
             {
-                path: '/register-user',
-                name: "Register",
-                component: profile_register,
+                path: '/user/create',
+                name: "user-create",
+                component: user_create,
                 meta: {
                     icon: "fa fa-user-plus",
-                    smallTitle: "register user profile"
+                    smallTitle: "register user profile",
+                    publicTitle:"Create user"
                 }
             },
-
             {
                 path: '/user/:userId',
-                name: "Users",
-                component: profile,
+                name: "User details",
+                component: user_details,
                 meta: {
                     icon: "fa fa-user",
-                    smallTitle: "user profile"
+                    smallTitle: "user profile",
+                    internalRoute: true,
+                    publicTitle:"User details"
                 }
             }
 
@@ -72,24 +71,20 @@ store.commit('setMenus', routes);
 var vueRouter = [];
 (function () {
     /*Esse trecho de código var alinhar os componentes interno do menu  */
-
     function routePush(routes) {
         var i = 0;
         for (i; i < routes.length; i++) {
             var route = routes[i];
             vueRouter.push(route);
-            if (route.children)
-                routePush(route.children);
+            //        if (route.children) routePush(route.children);
         }
     }
     routePush(routes);
 })();
 
-
-
 //Plugin install
 Vue.use(VueRouter)
-
+Vue.use(VueResource);
 const app = new Vue({
     store,
     render: h => h(index),
@@ -97,5 +92,11 @@ const app = new Vue({
         mode: 'history',
         base: "/",
         routes: vueRouter
-    })
+    }),
+    http: {
+        root: '/',
+        headers: {
+            Authorization: 'Basic YXBpOnBhc3N3b3Jk'
+        }
+    }
 }).$mount('#app')

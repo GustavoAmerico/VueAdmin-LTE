@@ -9,7 +9,7 @@ const state = {
   oauth: {
     name: "Gustavo Américo",
     legend: "Software Engine",
-    photo: "http://gustavoamerico.net/Midia/images/profile-avatar.jpg"
+    photo: "https://upload.wikimedia.org/wikipedia/pt/thumb/c/ce/Aang.png/250px-Aang.png"
 
   },
   menus: null
@@ -30,8 +30,8 @@ const mutations = {
 // actions are functions that causes side effects and can involve
 // asynchronous operations.
 const actions = {
-  translate: function (key) {
-    return $t(key);
+  httpGet({dispatch}, route) {
+    return Vue.$http.get(route);
   }
 }
 

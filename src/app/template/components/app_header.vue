@@ -98,6 +98,7 @@
       selected(val, old) {
         var self = this
         Vue.config.lang = val
+        Vue.config.fallback = old;
       }
     }
 
