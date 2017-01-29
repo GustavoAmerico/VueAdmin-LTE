@@ -11,15 +11,15 @@
                 <!-- form start -->
 
                 <div class="box-body">
-                    <div class="form-group">
-                        <div class="col-md-9 margin-bottom">
+                    <div class="row form-group">
+                        <div class="col-lx-9 margin-bottom">
                             <label for="name" class="control-label">{{$t('name')}}</label>
                             <input type="text" itemprop="name" maxlength="250" size="250" pattern="[a-zA-Z\sà-úÀ-Ú]{10,}" autocomplete="name" class="form-control text-capitalize"
                                 id="name" name="name" v-model="user.name" :title="$t('input.title.fullName')" :placeholder="$t('input.placeholder.fullName')"
                                 autofocus required/>
 
                         </div>
-                        <div class="col-md-3 margin-bottom">
+                        <div class="col-lx-3 margin-bottom">
                             <label for="birthDate" class="control-label">{{$t('label.text.birthDate')}}</label>
 
                             <div class="input-group">
@@ -34,8 +34,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-4 margin-bottom">
+                    <div class="row form-group">
+                        <div class="col-xl-4 margin-bottom">
                             <label for="email" class="control-label">{{$t('label.text.email')}}</label>
                             <div class="input-group">
                                 <input type="email" itemprop="email" name="email" maxlength="130" pattern="^([a-z0-9][a-z0-9-.]{0,32}[a-z0-9])(@[a-z0-9][a-z0-9-]{0,32}[a-z0-9])((?:.[a-z]{2,5}){1,2})$"
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 margin-bottom">
+                        <div class="col-xl-3 margin-bottom">
                             <label for="telephone" class="control-label">{{$t('label.text.principalPhone')}}</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
@@ -59,7 +59,7 @@
                                     :placeholder="$t('input.placeholder.principalPhone')" />
                             </div>
                         </div>
-                        <div class="col-md-3 margin-bottom">
+                        <div class="col-xl-3 margin-bottom">
                             <label for="cellPhone" class="control-label">{{$t('label.text.cellPhone')}}</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
@@ -72,7 +72,7 @@
                                     :placeholder="$t('input.placeholder.cellPhone')" />
                             </div>
                         </div>
-                        <div class="col-md-2 margin-bottom">
+                        <div class="col-lx-2 margin-bottom">
 
                             <label for="gender" class="control-label">{{$t('label.text.gender')}}</label>
                             <div class="input-group">
@@ -92,10 +92,6 @@
                     </div>
 
                 </div>
-
-
-
-
             </div>
             <!-- /.Perfil -->
 
@@ -106,21 +102,21 @@
                 <div class="box-body">
                     <div class="form-group">
 
-                        <div class="col-md-2 margin-bottom">
+                        <div class="col-xl-2 margin-bottom">
                             <label for="postalCode" class="control-label">{{$t('label.text.postalCode')}}</label>
                             <input type="text" itemprop="postalCode" name="postalCode" maxlength="9" pattern="[0-9]{8}|\d{5}-\d{3}" class="form-control"
                                 v-model="postalCode" id="postalCode" :title="$t('input.title.postalCode')" :placeholder="$t('input.placeholder.postalCode')"
                                 required />
                         </div>
 
-                        <div class="col-md-9 margin-bottom">
+                        <div class="col-xl-9 margin-bottom">
                             <label for="" class="control-label">{{$t('label.text.streetAddress')}}</label>
                             <input type="text" itemprop="streetAddress" name="streetAddress" maxlength="200" pattern="[0-9]{8}|\d{5}-\d{3}" class="form-control"
                                 v-model="address.streetAddress" id="streetAddress" :title="$t('input.title.streetAddress')" :placeholder="$t('input.placeholder.streetAddress')"
                                 required />
                         </div>
 
-                        <div class="col-md-1 margin-bottom">
+                        <div class="col-xl-1 margin-bottom">
                             <label for="homeNumber" class="control-label">{{$t('label.text.homeNumber')}}</label>
                             <input type="text" itemprop="postOfficeBoxNumber" name="homeNumber" maxlength="6" pattern="[0-9]{1,6}" class="form-control"
                                 v-model="address.number" id="homeNumber" :title="$t('input.title.homeNumber')" :placeholder="$t('input.placeholder.homeNumber')"
@@ -131,28 +127,31 @@
 
                     <div class="form-group">
 
-
-                        <div class="col-md-3 margin-bottom">
+                        <div class="col-xl-5 margin-bottom">
+                            <label for="complemento" class="control-label">
+                           {{$t('label.text.complemento')}}</label>
+                            <input type="text" name="complemento" id="complemento" class="form-control" v-model="address.complemento" :title="$t('input.title.complemento')"
+                                :placeholder="$t('input.placeholder.complemento')" />
+                        </div>
+                        <div class="col-xl-3 margin-bottom">
                             <label for="bairro" class="control-label">{{$t('label.text.bairro')}}</label>
                             <input type="text" name="bairro" disabled="true" class="form-control" v-model="address.bairro" id="bairro" :title="$t('input.title.bairro')"
                                 :placeholder="$t('input.placeholder.bairro')" required />
                         </div>
-                        <div class="col-md-3 margin-bottom">
+                        <div class="col-xl-3 margin-bottom">
                             <label for="addressLocality" class="control-label">{{$t('label.text.addressLocality')}}</label>
                             <input type="text" itemprop="addressLocality" name="addressLocality" disabled="true" class="form-control" v-model="address.addressLocality"
                                 id="addressLocality" :title="$t('input.title.addressLocality')" :placeholder="$t('input.placeholder.addressLocality')"
                                 required />
                         </div>
 
-
-
-                        <div class="col-md-1 margin-bottom">
+                        <div class="col-xl-1 margin-bottom">
                             <label for="addressRegion" class="control-label">{{$t('label.text.addressRegion')}}</label>
                             <input type="text" itemprop="addressRegion" name="postalCode" maxlength="2" disabled="true" class="form-control" v-model="address.addressRegion"
                                 id="addressRegion" :title="$t('input.title.addressRegion')" :placeholder="$t('input.placeholder.addressRegion')"
                             />
                         </div>
-                        <div class="col-md-6"></div>
+
                     </div>
 
 
@@ -172,7 +171,12 @@
     // import userProfile from '../components/profile/user-profile.vue'
 
     export default {
-        name: "user-create",
+        name: "oauth-user-create",
+        meta: {
+            icon: "fa fa-user-plus",
+            smallTitle: "register user profile",
+            publicTitle: "Create user"
+        },
         data() {
             return {
                 postalCode: "",
@@ -204,7 +208,8 @@
                         "homeNumber": "Number",
                         "addressRegion": "UF",
                         "addressLocality": "City",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     }
                 },
                 input: {
@@ -217,7 +222,8 @@
                         "addressRegion": "UF",
                         "postalCode": "CEP",
                         "addressLocality": "City",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     },
                     placeholder: {
                         fullName: "Write the full name",
@@ -230,7 +236,8 @@
                         "homeNumber": "123",
                         "addressRegion": "UF",
                         "addressLocality": "City",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     }
                 }
             },
@@ -251,7 +258,8 @@
                         "homeNumber": "Nº",
                         "addressRegion": "UF",
                         "addressLocality": "Cidade",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     }
                 },
                 input: {
@@ -265,7 +273,8 @@
                         "homeNumber": "Número da casa",
                         "addressRegion": "UF",
                         "addressLocality": "Cidade",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     },
                     placeholder: {
                         fullName: "Digite seu nome completo",
@@ -277,7 +286,8 @@
                         "streetAddress": "Address",
                         "addressRegion": "UF",
                         "addressLocality": "Cidade",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     },
                     title: {
                         principalPhone: "Telefone principal",
@@ -286,7 +296,8 @@
                         "homeNumber": "Digite o número da casa",
                         "addressRegion": "UF",
                         "addressLocality": "Cidade",
-                        "bairro": "Bairro"
+                        "bairro": "Bairro",
+                        complemento: "Complemento"
                     }
                 }
             }

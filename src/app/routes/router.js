@@ -1,72 +1,66 @@
-//App Vue
-import store from '../../store'
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-//Pages
-import index from '../template/template.vue'
-import home from '../template/home.vue'
 var VueResource = require('vue-resource')
 
+//App Vue
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import store from '../../store'
+import {menus} from './menu'
+//Pages
+import template from '../template/template.vue'
+import oauthTemplate from '../template/template-login.vue'
+import adminTemplate from '../template/template-admin.vue'
 
-import user_details from './user/user-details.vue'
-
-import user_create from './user/user-create.vue'
+import user_create from './admin/user/user-create.vue'
+import login from './oauth/login.vue'
 
 
 /*Aqui é aonde deve ser definido a estrutura do menu*/
-var routes = [
-    {
-        path: '/home',
-        name: "Home",
-        component: home,
-        meta: {
-            icon: "fa fa-home",
-            smallTitle: "home small",
-            publicTitle:"Home"
-        }
-    },
-    {
-        path: '#',
-        name: "Users",
-        component: home,
-        meta: {
-            icon: "fa fa-user",
-            smallTitle: "user profile",
-            publicTitle:"Users"
-        },
-        children: [
-            {
-                path: '/user/create',
-                name: "user-create",
-                component: user_create,
-                meta: {
-                    icon: "fa fa-user-plus",
-                    smallTitle: "register user profile",
-                    publicTitle:"Create user"
-                }
-            },
-            {
-                path: '/user/:userId',
-                name: "User details",
-                component: user_details,
-                meta: {
-                    icon: "fa fa-user",
-                    smallTitle: "user profile",
-                    internalRoute: true,
-                    publicTitle:"User details"
-                }
-            }
+let routes = [
+       {
 
-        ]
-
-    }
-
-]
-
-
-/*Registrando a estrutura de menu no store da aplicação*/
-store.commit('setMenus', routes);
+            "path": "/",
+            "name": "Default",
+            "children":[
+                            {
+                                "path": "/admin",
+                                "name": "admin",
+                                "component": adminTemplate,
+                                beforeEnter: (to, from, next) => {
+                                    next({"path":"admin/home"});
+                            }
+                            }                         
+                        ]
+                        },
+                        {
+                            "path": '/oauth',
+                            "name": oauthTemplate.name,
+                            "meta":oauthTemplate.meta,
+                            "component": oauthTemplate,
+                             beforeEnter: (to, from, next) => {
+                                 if(to.path==="/oauth")
+                                    next({"path":"oauth/login"});
+                                next();
+                            },                                                      
+                           "children": [
+                                {
+                                    path: '/oauth/create',
+                                    name: user_create.name,
+                                    component: user_create,
+                                    meta: user_create.meta
+                                },
+                                {
+                                    path: '/oauth/login',
+                                    name: login.name,
+                                    component: login,
+                                    meta: login.meta
+                                }
+                            ]
+                          }
+        
+        
+];
+ 
+routes = routes.concat(menus)
 
 var vueRouter = [];
 (function () {
@@ -82,17 +76,40 @@ var vueRouter = [];
     routePush(routes);
 })();
 
+let routeApp =  new VueRouter({
+        mode: 'history',
+        base: "/",
+        routes: vueRouter
+    });
+ /*
+routeApp.beforeEach((to, from, next) => {
+ 
+    if (false) 
+     {  next({
+        path: 'oauth/login',
+        query: { redirect: to.fullPath }
+      });
+     return;
+    }
+    
+  if (to.meta.internalRoute)
+    {
+         next({path: to.meta.redirect});
+         return;
+    }
+
+    next() 
+  
+})  */
+
+
 //Plugin install
 Vue.use(VueRouter)
 Vue.use(VueResource);
 const app = new Vue({
     store,
-    render: h => h(index),
-    router: new VueRouter({
-        mode: 'history',
-        base: "/",
-        routes: vueRouter
-    }),
+    render: h => h(template),
+    router:routeApp,
     http: {
         root: '/',
         headers: {

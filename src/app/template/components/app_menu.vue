@@ -18,8 +18,12 @@
       <ul class="sidebar-menu">
         <li class="header">{{ $t('navigation') }}</li>
 
-        <router-link v-if="$menu.meta.internalRoute !==true" active-class="active" tag="li" v-bind:to="$menu.path" v-for="$menu in $store.state.menus"
-          v-bind:name="$menu.name" v-bind:class="{ treeview: Array.isArray($menu.children)  }">
+        <router-link v-if="$menu.meta.internalRoute !==true" 
+        active-class="active" tag="li" 
+        v-bind:to="$menu.path" 
+        v-for="$menu in $store.state.menus"
+        v-bind:name="$menu.name" 
+        v-bind:class="{ treeview: Array.isArray($menu.children)  }">
 
           <a>
             <i v-bind:class="$menu.meta.icon"></i>
